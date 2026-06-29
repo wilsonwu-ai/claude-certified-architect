@@ -16,13 +16,13 @@ This repository contains study materials for the **Claude Certified Architect â€
 
 ## Study Guide
 
-- **English guide**: [`guide_en.md`](./guide_en.MD)
+- **English guide**: [`guide_en.md`](./guide_en.md)
 - **Spanish guide**: [`guide_es.md`](./guide_es.md)
-- **Russian guide**: [`guide_ru.md`](./guide_ru.MD)
+- **Russian guide**: [`guide_ru.md`](./guide_ru.md)
 - **Chinese guide**: [`guide_zh.md`](./guide_zh.md)
 - **Japanese guide**: [`guide_ja.md`](./guide_ja.md)
 - **Urdu guide**: [`guide_ur.md`](./guide_ur.md)
-- **Arabic guide**: [`guide_ar.MD`](./guide_ar.MD)
+- **Arabic guide**: [`guide_ar.md`](./guide_ar.md)
 - **Hebrew guide**: [`guide_he.md`](./guide_he.md)
 - **Korean guide**: [`guide_ko.md`](./guide_ko.md)
 - **Italian guide**: [`guide_it.md`](./guide_it.md)
@@ -63,6 +63,7 @@ This repository contains study materials for the **Claude Certified Architect â€
 - **Traditional Chinese (Taiwan) guide**: [`guide_zh-tw.epub`](./epub/guide_zh-tw.epub)
 - **Vietnamese guide**: [`guide_vi.epub`](./epub/guide_vi.epub)
 - **Turkish guide**: [`guide_tr.epub`](./epub/guide_tr.epub)
+- **French guide**: [`guide_fr.epub`](./epub/guide_fr.epub)
 
 ## How to Use
 
