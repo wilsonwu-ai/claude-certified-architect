@@ -1,0 +1,63 @@
+name: Build Practical Tests to Anki and Commit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'practical_test_*.html'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: guide-commit-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-anki:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install genanki
+
+      - name: Generate Anki decks
+        run: python3 utils/build_anki_deck.py
+
+      - name: Commit Anki decks back to repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add anki/.source-hash
+          find anki -name '*.apkg' -exec git add {} +
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Anki decks [skip ci]"
+            REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+            BRANCH="${{ github.ref_name }}"
+            for attempt in 1 2 3 4 5; do
+              if git push "$REMOTE" "HEAD:${BRANCH}"; then
+                echo "Push succeeded on attempt $attempt"
+                exit 0
+              fi
+              echo "Push rejected on attempt $attempt; rebasing onto latest ${BRANCH}"
+              git fetch "$REMOTE" "${BRANCH}"
+              git rebase "FETCH_HEAD"
+              sleep $((attempt * 2))
+            done
+            echo "Push failed after retries" >&2
+            exit 1
+          else
+            echo "No changes in Anki decks, skipping commit."
+          fi
