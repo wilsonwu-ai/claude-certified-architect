@@ -65,6 +65,15 @@ This repository contains study materials for the **Claude Certified Architect â€
 - **Turkish guide**: [`guide_tr.epub`](./epub/guide_tr.epub)
 - **French guide**: [`guide_fr.epub`](./epub/guide_fr.epub)
 
+## Anki Deck (Practical Test)
+
+- **English**: [`practical_test_en.apkg`](./anki/practical_test_en.apkg)
+- **French**: [`practical_test_fr.apkg`](./anki/practical_test_fr.apkg)
+- **Japanese**: [`practical_test_ja.apkg`](./anki/practical_test_ja.apkg)
+- **Korean**: [`practical_test_ko.apkg`](./anki/practical_test_ko.apkg)
+- **Russian**: [`practical_test_ru.apkg`](./anki/practical_test_ru.apkg)
+- **Chinese**: [`practical_test_zh.apkg`](./anki/practical_test_zh.apkg)
+
 ## How to Use
 
 - Read the guide that matches your preferred language.
